@@ -1,3 +1,9 @@
+---
+layout: page
+title: nteract
+permalink: /nteract/
+---
+
 # Writing Your Own Notebook with Remote Compute
 
 Interactive data exploration is essential for data science, quantitative finance,
