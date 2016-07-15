@@ -1,3 +1,9 @@
+---
+layout: page
+title: enchannel
+permalink: /enchannel/
+---
+
 # Build your own REPL with Jupyter via enchannel
 
 This guide is here to help you on your journey to working with nteract's node

@@ -1,3 +1,9 @@
+---
+layout: page
+title: commutable
+permalink: /commutable/
+---
+
 # commutable
 
 commutable is an nteract library that allows you to interact with a Jupyter Notebook file. Using commutable, you can create a Notebook document, append cells, update outputs, clear outputs, update the content of a cell and much more. commutable is written in [TypeScript]() so type-checking is enforced on all methods. Let's get stated with commutable. We'll be working in the shell and the Node REPL so make sure that you have those handy.
