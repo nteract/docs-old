@@ -12,9 +12,9 @@ a valuable contribution to **nteract**. Please add your name and GitHub
 username here. Thank you!
 
 
-- Carol Willing ([@willingc])
-- Daniel Anthony Noventa ([@temogen])
-- Jon Woo ([@jw56578])
-- Jonathon Frederic ([@jdfreder])
-- Kyle Kelley ([@rgbkrk])
-- Safia Abdalla ([@captainsafia])
+- Carol Willing (@willingc)
+- Daniel Anthony Noventa (@temogen)
+- Jon Woo (@jw56578)
+- Jonathon Frederic (@jdfreder)
+- Kyle Kelley (@rgbkrk)
+- Safia Abdalla (@captainsafia)
