@@ -16,7 +16,9 @@ you'll need to be familiar with how to:
 - enter basic commands in the shell
 - install Node and npm on your system
 
-## Installing commutable
+## Installing libraries
+
+### commutable
 
 Let's start off by installing commutable. commutable is an npm package so we
 can install it by using
@@ -25,10 +27,70 @@ can install it by using
 $ npm install commutable
 ```
 
+**Example and output**
+
+```
+$ npm install commutable
+/Users/carol/code/nteract/docs
+└─┬ commutable@1.1.3
+  ├── immutable@3.8.1
+  ├── lodash.repeat@4.1.0
+  └── uuid@2.0.3
+
+npm WARN enoent ENOENT: no such file or directory, open '/Users/carol/code/nteract/docs/package.json'
+npm WARN docs No description
+npm WARN docs No repository field.
+npm WARN docs No README data
+npm WARN docs No license field.
+$
+```
+
+Note: You may see WARN messages while the project is in Alpha. You may ignore them for now.
+
+### uuid
+
+Each notebook cell will need a unique ID. We'll need to install the `uuid`
+library for Node to help with creating unique IDs. We'll show you how to use
+it in a later section "Setting a unique ID for a code cell". Here's the
+installation command:
+
+```
+$ npm install uuid
+```
+
+**Example and output**
+
+```
+$ npm install uuid
+/Users/carol/code/nteract/docs
+└─┬ commutable@1.1.3
+  └── uuid@2.0.3
+
+npm WARN enoent ENOENT: no such file or directory, open '/Users/carol/code/nteract/docs/package.json'
+npm WARN docs No description
+npm WARN docs No repository field.
+npm WARN docs No README data
+npm WARN docs No license field.
+$
+```
+
 ## Importing commutable package
 
 Once we've installed commutable, we can open up our Node REPL and start to interact
-with its functions. Let's start by importing the commutable package into our
+with its functions. Let's start `node`:
+
+```
+$ node
+```
+
+This will the REPL prompt `>` where you will enter commands:
+
+```
+$ node
+>
+```
+
+Let's start by importing the commutable package into our
 context.
 
 ```
@@ -50,6 +112,16 @@ Map {
 	"cellMap": Map {}
 }
 ```
+
+Note: Your system may display the Map without formatting, such as:
+
+```
+> notebook
+Map { "cellOrder": List [], "nbformat": 4, "nbformat_minor": 0, "cellMap": Map {} }
+```
+
+As long as the elements inside the braces `Map {}` is similar, you are doing
+fine with the tutorial.
 
 ## Learning about Immutable.js and the notebook architecture
 
@@ -93,15 +165,8 @@ stored inside the `cellOrder` list and used as the keys in the `cellMap`.
 
 ## Setting a unique ID for a code cell
 
-In
-order to create the unique IDs, we'll need to install the `uuid` library for
-Node.
-
-```
-$ npm install uuid
-```
-
-And then require it into our context.
+Earlier, you installed "uuid". Let's begin using it. First, require it into
+our context.
 
 ```
 > const uuid = require("uuid");
@@ -130,7 +195,7 @@ Now, let's see if we can edit the content of the empty code cell we just added
 it. With commutable, of course we can!
 
 ```
-> const notebookWithCell2 = commutable.updateSource(notebookWithCell, uniqueId, "print('a')");
+> const notebookWithCellAndContent = commutable.updateSource(notebookWithCell, uniqueId, "print('a')");
 ```
 
 This function let's commutable know that we would like to update the source
@@ -141,7 +206,7 @@ Let's take a look at the notebook object to make sure that this change has
 been made.
 
 ```
-> notebookWithCell2
+> notebookWithCellAndContent
 Map {
 	"cellOrder": List [ "da15e63f-8838-482e-9de9-a4444af8acfa" ],
 	"nbformat": 4,
@@ -181,9 +246,8 @@ And then require the List object from the `immutable` REPL into our context.
 > const List = require("immutable").List;
 ```
 
-
 ```
-> const notebookWithOutputs = commutable.updateOutputs(notebookWithCell2, uniqueId, new List(["a"]));
+> const notebookWithOutputs = commutable.updateOutputs(notebookWithCellAndContent, uniqueId, new List(["a"]));
 ```
 
 Let's take a look at what our notebook with a single code cell with source and
