@@ -4,8 +4,19 @@ commutable is an nteract library that allows you to interact with a Jupyter
 Notebook file. Using commutable, you can create a Notebook document, append
 cells, update outputs, clear outputs, update the content of a cell and much
 more. commutable is written in [TypeScript]() so type-checking is enforced on
-all methods. Let's get started with commutable. We'll be working in the shell
-and the Node REPL so make sure that you have those handy.
+all methods. Let's get started with commutable.
+
+## Prerequisites
+
+We'll be working in the shell and using the Node REPL (read-eval-print-loop
+or a fancy way of saying "enter a command and get a response back"). So,
+you'll need to be familiar with how to:
+
+- open a Terminal
+- enter basic commands in the shell
+- install Node and npm on your system
+
+## Installing commutable
 
 Let's start off by installing commutable. commutable is an npm package so we
 can install it by using
@@ -14,13 +25,17 @@ can install it by using
 $ npm install commutable
 ```
 
-Once we've installed it, we can open up our Node REPL and start to interact
+## Importing commutable package
+
+Once we've installed commutable, we can open up our Node REPL and start to interact
 with its functions. Let's start by importing the commutable package into our
 context.
 
 ```
 > const commutable = require("commutable");
 ```
+
+## Creating an empty notebook
 
 Now that we have imported the commutable package, we can create our first
 empty notebook.
@@ -35,6 +50,8 @@ Map {
 	"cellMap": Map {}
 }
 ```
+
+## Learning about Immutable.js and the notebook architecture
 
 An empty Notebook is an [Immutable.js]() Map object that enforces the
 requirements for version 4 of the notebook format specification. This
@@ -72,7 +89,11 @@ associated with the notebook. This contains things like the `cell_type`
 created earlier. There is one difference between the way Jupyter formats
 notebook and the way commutable formats notebooks. commutable requires a
 unique ID to be associated with each cell for per-cell operations. This ID is
-stored inside the `cellOrder` list and used as the keys in the `cellMap`. In
+stored inside the `cellOrder` list and used as the keys in the `cellMap`.
+
+## Setting a unique ID for a code cell
+
+In
 order to create the unique IDs, we'll need to install the `uuid` library for
 Node.
 
@@ -101,7 +122,9 @@ we can add our empty code cell to our notebook using commutable.
 
 Note that the `appendCell` function returns to you a new notebook with the
 appended cell and does not modify the notebook that you pass it. We now have a
-notebook with a single empty code cell! :tada:
+notebook with a single empty code cell!
+
+## Editing the content of an empty code cell
 
 Now, let's see if we can edit the content of the empty code cell we just added
 it. With commutable, of course we can!
@@ -137,7 +160,11 @@ Map {
 }
 ```
 
-Nice! Now let's say that we've used enchannel to send a message to a Python
+Nice!
+
+## Updating the code cell output
+
+Now let's say that we've used enchannel to send a message to a Python
 kernel and receive an output for running `print("a")` on the Python REPL. How
 can we update the output of the code cell?
 
@@ -184,12 +211,14 @@ Map {
 
 Sweet! You can repeat this process for as many code cells as you like! In
 addition to code cells, you can also create Markdown cells using
-`commutable.emptyMarkdownCell`. Happy hacking!
+`commutable.emptyMarkdownCell`.
 
-## Major keys :key:
+Happy hacking!
 
-So what are the main take aways from this tutorial?
+## Major keys
+
+So, what are the main takeaways from this tutorial?
 
 * commutable stores everything as an Immutable object.
-* commutable functions are non-mutating.
-* commutable cells have a unique ID associated with them.
+* A commutable function is non-mutating.
+* A commutable cell has a unique ID.
