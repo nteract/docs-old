@@ -891,3 +891,4 @@ call for action - contribute to nteract
 - [SageNB](http://www.sagenb.org/)
 - [Beaker Notebook](http://beakernotebook.com/)
 - [Apache Zeppelin](https://zeppelin.incubator.apache.org/)
+- [CoCalc Jupyter](https://github.com/sagemathinc/cocalc/tree/master/src/smc-webapp/jupyter) and [intro blog post](http://blog.sagemath.com/jupyter/2017/05/05/jupyter-rewrite-for-smc.html) 
